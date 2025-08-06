@@ -1,0 +1,251 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use "sass:color";
+
+.login {
+  width: 1440px;
+  height: 900px;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+
+  &__container {
+    display: flex;
+    width: 100%;
+    max-width: 1440px;
+    height: 100vh;
+
+    @include mobile {
+      flex-direction: column;
+      height: auto;
+      min-height: 100vh;
+    }
+  }
+
+  &__left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-6;
+    background-color: $white;
+
+    @include mobile {
+      padding: $spacing-4;
+      align-items: center;
+      min-height: 40vh;
+    }
+  }
+
+  &__logo {
+    width: 173.76473999023438;
+    height: 36;
+    opacity: 1;
+    top: 106px;
+    left: 97px;
+
+    background-color: black;
+
+    @include mobile {
+      margin-bottom: $spacing-8;
+      text-align: center;
+    }
+  }
+
+  &__illustration {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 600px;
+      height: 337.57px;
+      top: 281px;
+      left: 67px;
+      // angle: 0 deg;
+      opacity: 1;
+    }
+
+    @include mobile {
+      margin-bottom: $spacing-8;
+
+      img {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+  }
+
+  &__right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-6;
+    background-color: $white;
+
+    @include mobile {
+      padding: $spacing-4;
+      flex: none;
+    }
+  }
+
+  &__form-container {
+    width: 100%;
+    max-width: 447px;
+
+    @include mobile {
+      max-width: 100%;
+    }
+  }
+
+  &__header {
+    margin-bottom: $spacing-12;
+
+    @include mobile {
+      text-align: center;
+      margin-bottom: $spacing-8;
+    }
+  }
+
+  &__title {
+    font-family: $font-family;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 100%;
+    letter-spacing: -4%;
+    color: $text-primary;
+    margin-bottom: $spacing-2;
+
+    @include mobile {
+      font-size: 32px;
+    }
+  }
+
+  &__subtitle {
+    font-family: $font-family;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-normal;
+    color: $text-secondary;
+    margin: 0;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-6;
+  }
+
+  &__field {
+    width: 100%;
+
+    .input {
+      width: 447px;
+      height: 50px;
+      border-radius: 5px;
+      border: 2px solid #213f7d14;
+      font-size: $font-size-sm;
+
+      @include mobile {
+        width: 100%;
+      }
+
+      &::placeholder {
+        color: #545f7d;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__forgot-password {
+    background: none;
+    border: none;
+    font-family: $font-family;
+    font-size: 12px;
+    font-weight: $font-weight-medium;
+    color: $primary-color;
+    text-align: left;
+    cursor: pointer;
+    padding: 0;
+    margin-top: -$spacing-3;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      color: color.adjust($primary-color, $lightness: -10%);
+      text-decoration: underline;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $primary-color;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+  }
+
+  &__submit-btn {
+    width: 447px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: $primary-color;
+    color: $white;
+    font-family: $font-family;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-base;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: $spacing-4;
+
+    @include mobile {
+      width: 100%;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: color.adjust($primary-color, $lightness: -8%);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba($primary-color, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+// Media queries for responsive design
+@media (max-width: 1200px) {
+  .login {
+    &__left,
+    &__right {
+      padding: $spacing-4;
+    }
+
+    &__illustration img {
+      width: 500px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .login {
+    &__container {
+      flex-direction: column;
+    }
+
+    &__left {
+      min-height: auto;
+      padding: $spacing-4 $spacing-4 $spacing-2;
+    }
+
+    &__right {
+      flex: 1;
+      padding: $spacing-2 $spacing-4 $spacing-4;
+    }
+
+    &__field .input,
+    &__submit-btn {
+      width: 100%;
+    }
+  }
+}

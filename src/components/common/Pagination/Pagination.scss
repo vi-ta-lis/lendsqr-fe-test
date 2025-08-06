@@ -1,0 +1,192 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use 'sass:color';
+
+.pagination {
+  @include flex-between;
+  align-items: center;
+  padding: $spacing-6 0;
+  margin-top: $spacing-6;
+  border-top: 1px solid rgba($secondary-color, 0.06);
+
+  @include mobile {
+    @include flex-column;
+    gap: $spacing-4;
+    text-align: center;
+  }
+
+  &__info {
+    @include flex-center;
+    gap: $spacing-2;
+
+    @include mobile {
+      order: 3;
+    }
+  }
+
+  &__text {
+    font-family: $font-family;
+    font-size: $font-size-sm;
+    color: $text-secondary;
+    @include flex-center;
+    gap: $spacing-2;
+  }
+
+  &__select {
+    @include input-base;
+    height: 32px;
+    padding: 0 $spacing-3;
+    font-size: $font-size-sm;
+    background-color: $white;
+    border: 1px solid rgba($secondary-color, 0.2);
+    cursor: pointer;
+    min-width: 60px;
+
+    &:focus {
+      border-color: $primary-color;
+      box-shadow: 0 0 0 1px $primary-color;
+    }
+  }
+
+  &__controls {
+    @include flex-center;
+    gap: $spacing-2;
+
+    @include mobile {
+      order: 1;
+    }
+  }
+
+  &__btn {
+    @include flex-center;
+    width: 32px;
+    height: 32px;
+    background-color: $white;
+    border: 1px solid rgba($secondary-color, 0.2);
+    border-radius: $border-radius-sm;
+    color: $text-secondary;
+    font-size: $font-size-sm;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover:not(:disabled) {
+      background-color: $primary-color;
+      border-color: $primary-color;
+      color: $white;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      background-color: rgba($gray-100, 0.5);
+    }
+
+    &--prev,
+    &--next {
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  &__pages {
+    @include flex-center;
+    gap: $spacing-1;
+    margin: 0 $spacing-2;
+
+    @include mobile {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  &__page {
+    @include flex-center;
+    min-width: 32px;
+    height: 32px;
+    padding: 0 $spacing-2;
+    background-color: $white;
+    border: 1px solid rgba($secondary-color, 0.2);
+    border-radius: $border-radius-sm;
+    color: $text-secondary;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: rgba($primary-color, 0.1);
+      border-color: $primary-color;
+      color: $primary-color;
+    }
+
+    &--active {
+      background-color: $primary-color;
+      border-color: $primary-color;
+      color: $white;
+
+      &:hover {
+        background-color: color.adjust($primary-color, $lightness: -10%);
+      }
+    }
+
+    @include mobile {
+      min-width: 28px;
+      height: 28px;
+      font-size: $font-size-xs;
+    }
+  }
+
+  &__ellipsis {
+    @include flex-center;
+    width: 32px;
+    height: 32px;
+    color: $text-secondary;
+    font-weight: $font-weight-bold;
+    user-select: none;
+
+    @include mobile {
+      width: 28px;
+      height: 28px;
+      font-size: $font-size-xs;
+    }
+  }
+
+  &__summary {
+    @include mobile {
+      order: 2;
+    }
+  }
+}
+
+// Focus styles for accessibility
+.pagination__btn:focus-visible,
+.pagination__page:focus-visible,
+.pagination__select:focus-visible {
+  outline: 2px solid $primary-color;
+  outline-offset: 2px;
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .pagination {
+    &__btn,
+    &__page {
+      border-width: 2px;
+    }
+
+    &__page--active {
+      border-color: $text-primary;
+      background-color: $text-primary;
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .pagination {
+    &__btn,
+    &__page,
+    &__select {
+      transition: none;
+    }
+  }
+}

@@ -1,0 +1,109 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use 'sass:color';
+
+.btn {
+  @include button-base;
+  position: relative;
+  font-size: $font-size-base;
+  transition: all 0.2s ease-in-out;
+
+  &--primary {
+    background-color: $primary-color;
+    color: $white;
+    
+    &:hover:not(:disabled) {
+      background-color: color.adjust($primary-color, $lightness: -10%);
+      transform: translateY(-1px);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &--secondary {
+    background-color: $secondary-color;
+    color: $white;
+    
+    &:hover:not(:disabled) {
+      background-color: color.adjust($secondary-color, $lightness: -10%);
+      transform: translateY(-1px);
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: $primary-color;
+    border: 1px solid $primary-color;
+    
+    &:hover:not(:disabled) {
+      background-color: $primary-color;
+      color: $white;
+    }
+  }
+
+  &--small {
+    padding: $spacing-2 $spacing-4;
+    font-size: $font-size-sm;
+    height: 36px;
+  }
+
+  &--medium {
+    padding: $spacing-3 $spacing-6;
+    font-size: $font-size-base;
+    height: 48px;
+  }
+
+  &--large {
+    padding: $spacing-4 $spacing-8;
+    font-size: $font-size-lg;
+    height: 56px;
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &--loading {
+    color: transparent;
+    
+    .btn__spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      border: 2px solid transparent;
+      border-top: 2px solid currentColor;
+      border-radius: 50%;
+      animation: btn-spin 1s linear infinite;
+    }
+  }
+
+  &__text {
+    transition: opacity 0.2s ease-in-out;
+    
+    &--loading {
+      opacity: 0;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+
+  @keyframes btn-spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  // Focus styles for accessibility
+  &:focus-visible {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+  }
+}

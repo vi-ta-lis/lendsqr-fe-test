@@ -1,0 +1,60 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.users-page {
+  width: 100%;
+  max-width: 100%;
+
+  &__header {
+    margin-bottom: $spacing-8;
+  }
+
+  &__title {
+    @include heading-2;
+    color: $text-primary;
+    margin: 0;
+    
+    @include mobile {
+      font-size: $font-size-2xl;
+    }
+  }
+
+  &__stats {
+    margin-bottom: $spacing-10;
+    
+    @include mobile {
+      margin-bottom: $spacing-6;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    
+    // Ensure table container doesn't overflow
+    .user-table {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+// Responsive adjustments
+@include mobile {
+  .users-page {
+    &__header {
+      margin-bottom: $spacing-6;
+    }
+    
+    &__stats {
+      margin-bottom: $spacing-6;
+    }
+  }
+}
+
+@include tablet {
+  .users-page {
+    &__header {
+      margin-bottom: $spacing-8;
+    }
+  }
+}

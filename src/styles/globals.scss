@@ -1,0 +1,182 @@
+@use './variables' as *;
+@use './mixins' as *;
+@use 'sass:color';
+
+// Global reset and base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family;
+  background-color: $background;
+  color: $text-primary;
+  line-height: $line-height-normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Remove default button styles
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+// Remove default input styles
+input, textarea, select {
+  font: inherit;
+}
+
+// Remove default list styles
+ol, ul {
+  list-style: none;
+}
+
+// Remove default link styles
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// Focus styles for accessibility
+:focus-visible {
+  outline: 2px solid $primary-color;
+  outline-offset: 2px;
+}
+
+// Common utility classes
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-4;
+  
+  @include desktop {
+    padding: 0 $spacing-6;
+  }
+}
+
+.flex-center {
+  @include flex-center;
+}
+
+.flex-between {
+  @include flex-between;
+}
+
+.flex-start {
+  @include flex-start;
+}
+
+.flex-column {
+  @include flex-column;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.truncate {
+  @include truncate;
+}
+
+.sr-only {
+  @include sr-only;
+}
+
+// Status colors
+.text-success {
+  color: $success-color !important;
+}
+
+.text-warning {
+  color: $warning-color !important;
+}
+
+.text-danger {
+  color: $danger-color !important;
+}
+
+.text-primary {
+  color: $primary-color !important;
+}
+
+.text-secondary {
+  color: $text-secondary !important;
+}
+
+// Background colors
+.bg-success {
+  background-color: color.adjust($success-color, $lightness: 45%) !important;
+  color: $success-color !important;
+}
+
+.bg-warning {
+  background-color: color.adjust($warning-color, $lightness: 45%) !important;
+  color: $warning-color !important;
+}
+
+.bg-danger {
+  background-color: color.adjust($danger-color, $lightness: 45%) !important;
+  color: $danger-color !important;
+}
+
+.bg-primary {
+  background-color: color.adjust($primary-color, $lightness: 45%) !important;
+  color: $primary-color !important;
+}
+
+// Spacing utilities
+.m-0 { margin: 0 !important; }
+.m-1 { margin: $spacing-1 !important; }
+.m-2 { margin: $spacing-2 !important; }
+.m-3 { margin: $spacing-3 !important; }
+.m-4 { margin: $spacing-4 !important; }
+.m-5 { margin: $spacing-5 !important; }
+.m-6 { margin: $spacing-6 !important; }
+
+.p-0 { padding: 0 !important; }
+.p-1 { padding: $spacing-1 !important; }
+.p-2 { padding: $spacing-2 !important; }
+.p-3 { padding: $spacing-3 !important; }
+.p-4 { padding: $spacing-4 !important; }
+.p-5 { padding: $spacing-5 !important; }
+.p-6 { padding: $spacing-6 !important; }
+
+// Display utilities
+.d-none { display: none !important; }
+.d-block { display: block !important; }
+.d-flex { display: flex !important; }
+.d-inline-flex { display: inline-flex !important; }
+
+// Responsive utilities
+@include mobile {
+  .d-mobile-none { display: none !important; }
+  .d-mobile-block { display: block !important; }
+  .d-mobile-flex { display: flex !important; }
+}
+
+@include desktop {
+  .d-desktop-none { display: none !important; }
+  .d-desktop-block { display: block !important; }
+  .d-desktop-flex { display: flex !important; }
+}
