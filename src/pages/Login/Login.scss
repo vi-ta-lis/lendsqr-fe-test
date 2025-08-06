@@ -63,8 +63,6 @@
       height: 337.57px;
       top: 281px;
       left: 67px;
-      // angle: 0 deg;
-      opacity: 1;
     }
 
     @include mobile {
@@ -78,12 +76,19 @@
   }
 
   &__right {
+    width: 704px;
+    height: 900px;
+    opacity: 1;
+    top: -5px;
+    left: 736px;
     flex: 1;
+    max-width: 100%;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: $spacing-6;
-    background-color: $white;
+    // padding: $spacing-6;
+    background-color: rgba(84, 95, 125, 0.15);
 
     @include mobile {
       padding: $spacing-4;
