@@ -3,6 +3,9 @@
 @use "sass:color";
 
 .login {
+}
+
+.login {
   width: 1440px;
   height: 900px;
   max-width: 100%;
@@ -115,7 +118,7 @@
   }
 
   &__title {
-    font-family: $font-family;
+    font-family: "Avenir Next";
     font-weight: 700;
     font-size: 40px;
     line-height: 100%;

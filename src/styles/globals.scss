@@ -1,6 +1,6 @@
-@use './variables' as *;
-@use './mixins' as *;
-@use 'sass:color';
+@use "./variables" as *;
+@use "./mixins" as *;
+@use "sass:color";
 
 // Global reset and base styles
 * {
@@ -23,6 +23,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/fonts/AvenirNext/AvenirNext-Regular.woff2") format("woff2"),
+    url("/fonts/AvenirNext/AvenirNext-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
 // Remove default button styles
 button {
   background: none;
@@ -34,12 +42,15 @@ button {
 }
 
 // Remove default input styles
-input, textarea, select {
+input,
+textarea,
+select {
   font: inherit;
 }
 
 // Remove default list styles
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
@@ -61,7 +72,7 @@ a {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 $spacing-4;
-  
+
   @include desktop {
     padding: 0 $spacing-6;
   }
@@ -146,37 +157,85 @@ a {
 }
 
 // Spacing utilities
-.m-0 { margin: 0 !important; }
-.m-1 { margin: $spacing-1 !important; }
-.m-2 { margin: $spacing-2 !important; }
-.m-3 { margin: $spacing-3 !important; }
-.m-4 { margin: $spacing-4 !important; }
-.m-5 { margin: $spacing-5 !important; }
-.m-6 { margin: $spacing-6 !important; }
+.m-0 {
+  margin: 0 !important;
+}
+.m-1 {
+  margin: $spacing-1 !important;
+}
+.m-2 {
+  margin: $spacing-2 !important;
+}
+.m-3 {
+  margin: $spacing-3 !important;
+}
+.m-4 {
+  margin: $spacing-4 !important;
+}
+.m-5 {
+  margin: $spacing-5 !important;
+}
+.m-6 {
+  margin: $spacing-6 !important;
+}
 
-.p-0 { padding: 0 !important; }
-.p-1 { padding: $spacing-1 !important; }
-.p-2 { padding: $spacing-2 !important; }
-.p-3 { padding: $spacing-3 !important; }
-.p-4 { padding: $spacing-4 !important; }
-.p-5 { padding: $spacing-5 !important; }
-.p-6 { padding: $spacing-6 !important; }
+.p-0 {
+  padding: 0 !important;
+}
+.p-1 {
+  padding: $spacing-1 !important;
+}
+.p-2 {
+  padding: $spacing-2 !important;
+}
+.p-3 {
+  padding: $spacing-3 !important;
+}
+.p-4 {
+  padding: $spacing-4 !important;
+}
+.p-5 {
+  padding: $spacing-5 !important;
+}
+.p-6 {
+  padding: $spacing-6 !important;
+}
 
 // Display utilities
-.d-none { display: none !important; }
-.d-block { display: block !important; }
-.d-flex { display: flex !important; }
-.d-inline-flex { display: inline-flex !important; }
+.d-none {
+  display: none !important;
+}
+.d-block {
+  display: block !important;
+}
+.d-flex {
+  display: flex !important;
+}
+.d-inline-flex {
+  display: inline-flex !important;
+}
 
 // Responsive utilities
 @include mobile {
-  .d-mobile-none { display: none !important; }
-  .d-mobile-block { display: block !important; }
-  .d-mobile-flex { display: flex !important; }
+  .d-mobile-none {
+    display: none !important;
+  }
+  .d-mobile-block {
+    display: block !important;
+  }
+  .d-mobile-flex {
+    display: flex !important;
+  }
 }
 
 @include desktop {
-  .d-desktop-none { display: none !important; }
-  .d-desktop-block { display: block !important; }
-  .d-desktop-flex { display: flex !important; }
+  .d-desktop-none {
+    display: none !important;
+  }
+  .d-desktop-block {
+    display: block !important;
+  }
+  .d-desktop-flex {
+    display: flex !important;
+  }
 }
