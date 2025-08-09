@@ -1,6 +1,6 @@
-@use '../../../styles/variables' as *;
-@use '../../../styles/mixins' as *;
-@use 'sass:color';
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+@use "sass:color";
 
 .header {
   position: fixed;
@@ -21,7 +21,8 @@
   &__container {
     @include flex-between;
     height: 100%;
-    padding: 0 $spacing-6;
+    width: 1440px;
+    height: 100px;
     max-width: 100%;
 
     @media (max-width: 767px) {
@@ -71,14 +72,16 @@
 
   &__search {
     position: relative;
-    width: 100%;
+    width: 400px;
+    height: 40px;
+    border-radius: 4px;
   }
 
   &__search-input {
     width: 100%;
     height: 40px;
     padding: 0 50px 0 $spacing-4;
-    border: 1px solid rgba($secondary-color, 0.2);
+    border: 1px solid rgba(33, 63, 125, 1);
     border-radius: $border-radius;
     background-color: $white;
     font-size: $font-size-sm;
@@ -107,7 +110,8 @@
     right: 0;
     top: 0;
     bottom: 0;
-    width: 40px;
+    width: 56px;
+    height: 40px;
     background-color: $primary-color;
     border: none;
     border-radius: 0 $border-radius $border-radius 0;
@@ -140,6 +144,8 @@
 
   &__docs {
     color: $text-primary;
+    width: 37px;
+    height: 19px;
     text-decoration: none;
     font-size: $font-size-base;
     font-weight: $font-weight-medium;
@@ -157,6 +163,8 @@
 
   &__notification {
     position: relative;
+    width: 26px;
+    height: 26px;
     background: none;
     border: none;
     padding: $spacing-2;
@@ -194,8 +202,8 @@
   }
 
   &__user-avatar {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid rgba($primary-color, 0.1);
@@ -208,7 +216,7 @@
 
   &__user-details {
     @include flex-center;
-    gap: $spacing-2;
+    gap: 10px;
     background: none;
     border: none;
     cursor: pointer;
@@ -226,13 +234,22 @@
   }
 
   &__user-name {
-    font-size: $font-size-base;
-    font-weight: $font-weight-medium;
-    color: $text-primary;
+    width: 58px;
+    height: 19px;
+    font-family: Work Sans;
+    font-weight: 500;
+    color: rgba(33, 63, 125, 1);
+
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0px;
   }
 
   &__user-arrow {
     font-size: 12px;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
     color: $text-secondary;
     transition: transform 0.2s ease-in-out;
 
