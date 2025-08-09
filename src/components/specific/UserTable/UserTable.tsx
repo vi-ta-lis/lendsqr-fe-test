@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import type { User, UserStatus, UserTableFilters, SortConfig } from '../../../types';
 import Button from '../../common/Button';
 import './UserTable.scss';
+import Filter from "../../../assets/icons/filter.png"
 
 interface UserTableProps {
   users: User[];
@@ -189,7 +190,7 @@ const UserTable: React.FC<UserTableProps> = ({
                           className="user-table__filter-btn"
                           onClick={() => toggleFilter(column.key)}
                         >
-                          ⚙️
+                        <img src={Filter} alt="filter btn" />
                         </button>
                       )}
                     </div>

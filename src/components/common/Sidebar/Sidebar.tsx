@@ -24,6 +24,7 @@ import Settlement from "../../../assets/icons/settlement.png";
 import Reports from "../../../assets/icons/reports.png";
 import Prefrences from "../../../assets/icons/pref.png";
 import Fees from "../../../assets/icons/fees-pricing.png";
+import OrgArrow from "../../../assets/icons/org-arrow.png";
 import Audit from "../../../assets/icons/audit.png";
 
 interface MenuSection {
@@ -189,7 +190,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
             </span>
             <span className="sidebar__org-text">Switch Organization</span>
             <span className="sidebar__org-arrow">
-              <img src={arrow} alt="arrow" />
+              <img src={OrgArrow} alt="arrow" />
             </span>
           </button>
 

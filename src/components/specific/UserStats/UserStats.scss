@@ -1,32 +1,27 @@
-@use '../../../styles/variables' as *;
+@use '../../../styles/variables' as *; 
 @use '../../../styles/mixins' as *;
 
 .user-stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: $spacing-5;
-  margin-bottom: $spacing-10;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px; // Matches Figma's spacing
 
   @include tablet {
     grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-4;
-    margin-bottom: $spacing-8;
+    gap: 20px;
   }
 
   @include mobile {
     grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-3;
-    margin-bottom: $spacing-6;
+    gap: 16px;
   }
 
   &__card {
-    width: 240px;
-    height: 160px;
-    background-color: $white;
+    background: $white;
     border: 1px solid rgba($secondary-color, 0.06);
     border-radius: 4px;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.04);
-    padding: 30px 26px;
+    padding: 24px;
     transition: all 0.2s ease-in-out;
 
     &:hover {
@@ -35,144 +30,55 @@
     }
 
     @include mobile {
-      width: 100%;
-      height: auto;
-      min-height: 140px;
-      padding: $spacing-5;
-    }
-
-    @include tablet {
-      width: 100%;
-      height: auto;
-      min-height: 150px;
-      padding: $spacing-6;
+      padding: 20px;
     }
 
     &--loading {
       @include flex-center;
-      justify-content: center;
     }
   }
 
   &__card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; // Figma spacing between icon and text
     height: 100%;
-    @include flex-column;
-    justify-content: space-between;
   }
 
   &__card-icon {
-    width: 40px;
-    height: 40px;
+    width: 48px; // Matches Figma exactly
+    height: 48px;
     border-radius: 50%;
     @include flex-center;
-    font-size: 20px;
-    margin-bottom: $spacing-4;
     flex-shrink: 0;
+    background-color: var(--icon-bg, $primary-color); // dynamic per card
+    margin-bottom: 8px;
 
     &-img {
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 24px;
     }
-  }
-
-  &__card-info {
-    flex: 1;
   }
 
   &__card-title {
     font-family: $font-family;
     font-size: 14px;
-    font-weight: $font-weight-medium;
+    font-weight: 500; // Matches Figma medium weight
     color: $text-secondary;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin: 0 0 $spacing-2 0;
-    line-height: 1.2;
+    letter-spacing: 0.6px; // Slightly more than before
+    margin-bottom: 6px;
   }
 
   &__card-value {
     font-family: $font-family;
     font-size: 24px;
-    font-weight: $font-weight-bold;
+    font-weight: 700;
     color: $text-primary;
-    margin: 0;
     line-height: 1.2;
 
     @include mobile {
       font-size: 20px;
     }
-  }
-
-  &__card-skeleton {
-    width: 100%;
-    height: 100px;
-    background: linear-gradient(
-      90deg,
-      rgba($gray-200, 0.5) 25%,
-      rgba($gray-100, 0.8) 50%,
-      rgba($gray-200, 0.5) 75%
-    );
-    background-size: 200% 100%;
-    border-radius: $border-radius;
-    animation: loading-shimmer 1.5s infinite;
-  }
-}
-
-@keyframes loading-shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-// Large desktop adjustments
-@media (min-width: 1200px) {
-  .user-stats {
-    gap: $spacing-6;
-  }
-
-  .user-stats__card {
-    width: 250px;
-    height: 170px;
-    padding: 32px 28px;
-  }
-
-  .user-stats__card-title {
-    font-size: 15px;
-  }
-
-  .user-stats__card-value {
-    font-size: 26px;
-  }
-}
-
-// Extra small mobile - 1 card per row
-@media (max-width: 480px) {
-  .user-stats {
-    grid-template-columns: 1fr;
-    gap: $spacing-3;
-  }
-
-  .user-stats__card {
-    width: 100%;
-    padding: $spacing-4;
-    min-height: 120px;
-  }
-
-  .user-stats__card-icon {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
-    margin-bottom: $spacing-3;
-  }
-
-  .user-stats__card-title {
-    font-size: 12px;
-  }
-
-  .user-stats__card-value {
-    font-size: 18px;
   }
 }
