@@ -1,11 +1,30 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../../../assets/icons/logo.svg";
-import UserFriendsIcon from "../../../assets/icons/user-friends.svg";
+import UserIcon from "../../../assets/icons/usericon.png";
+import GuarantorIcon from "../../../assets/icons/guarantor.png";
 import briefcase from "../../../assets/icons/briefcase.svg";
 import arrow from "../../../assets/icons/uparrow.png";
-import dashhome from "../../../assets/icons/dashhome.png"
+import dashhome from "../../../assets/icons/dashhome.png";
+import Loans from "../../../assets/icons/loans.png";
 import "./Sidebar.scss";
+import Decision from "../../../assets/icons/decision.png";
+import Savings from "../../../assets/icons/saving.png";
+import LoanRequest from "../../../assets/icons/loan.png";
+import WhiteList from "../../../assets/icons/whitelist.png";
+import Karma from "../../../assets/icons/karma.png";
+import Organization from "../../../assets/icons/organization.png";
+import LoanProducts from "../../../assets/icons/loan-products.png";
+import UserFriendsIcon from "../../../assets/icons/user-friends.svg"; // <-- renamed import
+import FeesCharge from "../../../assets/icons/fees.png";
+import Transactions from "../../../assets/icons/transaction.png";
+import Services from "../../../assets/icons/services.png";
+import ServiceAccount from "../../../assets/icons/service-account.png";
+import Settlement from "../../../assets/icons/settlement.png";
+import Reports from "../../../assets/icons/reports.png";
+import Prefrences from "../../../assets/icons/pref.png";
+import Fees from "../../../assets/icons/fees-pricing.png";
+import Audit from "../../../assets/icons/audit.png";
 
 interface MenuSection {
   title: string;
@@ -16,46 +35,41 @@ interface MenuItem {
   id: string;
   label: string;
   path: string;
-  icon: string;
+  icon?: string; // optional now to be defensive
 }
 
 const menuSections: MenuSection[] = [
   {
     title: "CUSTOMERS",
     items: [
-      { id: "users", label: "Users", path: "/users", icon: UserFriendsIcon },
+      { id: "users", label: "Users", path: "/users", icon: UserIcon },
       {
         id: "guarantors",
         label: "Guarantors",
         path: "/guarantors",
-        icon: UserFriendsIcon,
+        icon: GuarantorIcon,
       },
-      { id: "loans", label: "Loans", path: "/loans", icon: UserFriendsIcon },
+      { id: "loans", label: "Loans", path: "/loans", icon: Loans },
       {
         id: "decision-models",
         label: "Decision Models",
         path: "/decision-models",
-        icon: UserFriendsIcon,
+        icon: Decision,
       },
-      {
-        id: "savings",
-        label: "Savings",
-        path: "/savings",
-        icon: UserFriendsIcon,
-      },
+      { id: "savings", label: "Savings", path: "/savings", icon: Savings },
       {
         id: "loan-requests",
         label: "Loan Requests",
         path: "/loan-requests",
-        icon: UserFriendsIcon,
+        icon: LoanRequest,
       },
       {
         id: "whitelist",
         label: "Whitelist",
         path: "/whitelist",
-        icon: UserFriendsIcon,
+        icon: WhiteList,
       },
-      { id: "karma", label: "Karma", path: "/karma", icon: UserFriendsIcon },
+      { id: "karma", label: "Karma", path: "/karma", icon: Karma },
     ],
   },
   {
@@ -65,13 +79,13 @@ const menuSections: MenuSection[] = [
         id: "organization",
         label: "Organization",
         path: "/organization",
-        icon: UserFriendsIcon,
+        icon: Organization,
       },
       {
         id: "loan-products",
         label: "Loan Products",
         path: "/loan-products",
-        icon: UserFriendsIcon,
+        icon: LoanProducts,
       },
       {
         id: "savings-products",
@@ -83,38 +97,28 @@ const menuSections: MenuSection[] = [
         id: "fees-charges",
         label: "Fees and Charges",
         path: "/fees-charges",
-        icon: UserFriendsIcon,
+        icon: FeesCharge,
       },
       {
         id: "transactions",
         label: "Transactions",
         path: "/transactions",
-        icon: UserFriendsIcon,
+        icon: Transactions,
       },
-      {
-        id: "services",
-        label: "Services",
-        path: "/services",
-        icon: UserFriendsIcon,
-      },
+      { id: "services", label: "Services", path: "/services", icon: Services },
       {
         id: "service-account",
         label: "Service Account",
         path: "/service-account",
-        icon: UserFriendsIcon,
+        icon: ServiceAccount,
       },
       {
         id: "settlements",
         label: "Settlements",
         path: "/settlements",
-        icon: UserFriendsIcon,
+        icon: Settlement,
       },
-      {
-        id: "reports",
-        label: "Reports",
-        path: "/reports",
-        icon: UserFriendsIcon,
-      },
+      { id: "reports", label: "Reports", path: "/reports", icon: Reports },
     ],
   },
   {
@@ -124,13 +128,13 @@ const menuSections: MenuSection[] = [
         id: "preferences",
         label: "Preferences",
         path: "/preferences",
-        icon: UserFriendsIcon,
+        icon: Prefrences,
       },
       {
         id: "fees-pricing",
         label: "Fees and Pricing",
         path: "/fees-pricing",
-        icon: UserFriendsIcon,
+        icon: Fees,
       },
       {
         id: "audit-logs",
@@ -207,7 +211,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           }`}
           onClick={onClose}
         >
-          <img src={dashhome} alt="" className="sidebar__nav-icon" />
+          <img src={dashhome} alt="dashboard" className="sidebar__nav-icon" />
           <span className="sidebar__nav-text">Dashboard</span>
         </Link>
 
@@ -226,7 +230,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                     }`}
                     onClick={onClose}
                   >
-                    <img src={item.icon} alt="" className="sidebar__nav-icon" />
+                    {item.icon && (
+                      <img
+                        src={item.icon}
+                        alt={item.label}
+                        className="sidebar__nav-icon"
+                      />
+                    )}
                     <span className="sidebar__nav-text">{item.label}</span>
                   </Link>
                 </li>
@@ -239,7 +249,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       <div className="sidebar__footer">
         <div className="sidebar__version">v1.2.0</div>
         <Link to="/login" className="sidebar__logout" onClick={onClose}>
-          <img src={UserFriendsIcon} alt="" className="sidebar__logout-icon" />
+          <img
+            src={UserFriendsIcon}
+            alt="logout"
+            className="sidebar__logout-icon"
+          />
           <span className="sidebar__logout-text">Logout</span>
         </Link>
       </div>
