@@ -101,7 +101,7 @@ const Login: React.FC = () => {
         <div className="login__right">
           <div className="login__form-container">
             <div className="login__header">
-              <h1 className="login__title">Welcome Kosi!</h1>
+              <h1 className="login__title">Welcome!</h1>
               <p className="login__subtitle">Enter details to login.</p>
             </div>
 
@@ -118,7 +118,7 @@ const Login: React.FC = () => {
                 />
               </div>
 
-              <div className="login__field">
+              <div className="login__field1">
                 <Input
                   type="password"
                   name="password"

@@ -90,7 +90,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    // padding: $spacing-6;
     background-color: rgba(84, 95, 125, 0.15);
 
     @include mobile {
@@ -110,6 +109,10 @@
 
   &__header {
     margin-bottom: $spacing-12;
+    width: 183;
+    height: 55;
+    top: 215px;
+    left: 836px;
 
     @include mobile {
       text-align: center;
@@ -125,6 +128,7 @@
     letter-spacing: -4%;
     color: $text-primary;
     margin-bottom: $spacing-2;
+    color: rgba(33, 63, 125, 1);
 
     @include mobile {
       font-size: 32px;
@@ -132,11 +136,18 @@
   }
 
   &__subtitle {
-    font-family: $font-family;
-    font-size: $font-size-lg;
-    font-weight: $font-weight-normal;
-    color: $text-secondary;
+    font-family: "Avenir Next";
     margin: 0;
+    width: 194px;
+    height: 28px;
+    top: 280px;
+    left: 836px;
+    font-family: Avenir Next;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: rgba(84, 95, 125, 1);
   }
 
   &__form {
@@ -147,6 +158,14 @@
 
   &__field {
     width: 100%;
+    width: 447;
+    height: 50;
+    top: 368px;
+    color: rgba(255, 255, 255, 1);
+    border: 2px solid rgba(84, 95, 125, 0.15);
+    left: 836px;
+    border-radius: 5px;
+    border-width: 2px;
 
     .input {
       width: 447px;
@@ -166,13 +185,49 @@
     }
   }
 
+  &__field1 {
+    width: 447;
+    height: 50;
+    top: 442px;
+    left: 836px;
+    border-radius: 5px;
+    border: 2px solid rgba(84, 95, 125, 0.15);
+    .input {
+      width: 447px;
+      height: 50px;
+      border-radius: 5px;
+      border: 2px solid #213f7d14;
+      font-size: $font-size-sm;
+
+      @include mobile {
+        width: 100%;
+      }
+
+      &::placeholder {
+        color: #545f7d;
+        opacity: 1;
+      }
+    }
+  }
+
   &__forgot-password {
+    font-family: Avenir Next;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 10%;
+    text-align: right;
+    text-transform: uppercase;
+    width: 147px;
+    height: 17px;
+    top: 516px;
+    left: 836px;
     background: none;
     border: none;
     font-family: $font-family;
     font-size: 12px;
     font-weight: $font-weight-medium;
-    color: $primary-color;
+    color: rgba(57, 205, 204, 1);
     text-align: left;
     cursor: pointer;
     padding: 0;
@@ -193,17 +248,19 @@
   }
 
   &__submit-btn {
+    max-width: 100%px;
+    max-height: 100%;
     width: 447px;
     height: 48px;
     border-radius: 8px;
-    background-color: $primary-color;
+    background: rgba(57, 205, 204, 1);
     color: $white;
     font-family: $font-family;
     font-weight: $font-weight-medium;
     font-size: $font-size-base;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-top: $spacing-4;
+    // margin-top: $spacing-4;
 
     @include mobile {
       width: 100%;
