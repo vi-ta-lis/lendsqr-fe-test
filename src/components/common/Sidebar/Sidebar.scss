@@ -6,7 +6,8 @@
   top: 0;
   left: 0;
   width: 283px;
-  height: 100vh;
+  max-height: 100vh;
+  height: 1574px;
   background-color: $white;
   border-right: 1px solid rgba($secondary-color, 0.04);
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
@@ -77,6 +78,8 @@
 
   &__org-selector {
     position: relative;
+    width: 206px;
+    height: 19px;
   }
 
   &__org-btn {
@@ -109,17 +112,27 @@
   &__org-text {
     flex: 1;
     text-align: left;
-    font-weight: $font-weight-medium;
+    font-family: Work Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0px;
   }
 
   &__org-arrow {
     font-size: 14px;
     opacity: 0.6;
+
     transition: transform 0.2s ease-in-out;
 
     .sidebar__org-btn--open & {
-      transform: rotate(180deg);
+      transform: rotate(-90deg);
     }
+  }
+  &__org-arrow img {
+    width: 14px;
+    margin-top: -12px;
+    height: 14px;
   }
 
   &__org-dropdown {
@@ -179,6 +192,10 @@
     }
   }
 
+  &__nav-item img {
+    width: 16px;
+    height: 14.23px;
+  }
   &__nav-icon {
     width: 16px;
     height: 16px;

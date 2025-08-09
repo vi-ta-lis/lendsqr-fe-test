@@ -163,8 +163,6 @@
 
   &__notification {
     position: relative;
-    width: 26px;
-    height: 26px;
     background: none;
     border: none;
     padding: $spacing-2;
@@ -181,15 +179,9 @@
     font-size: 18px;
     color: $text-primary;
   }
-
-  &__notification-badge {
-    position: absolute;
-    top: 6px;
-    right: 6px;
-    width: 8px;
-    height: 8px;
-    background-color: $danger-color;
-    border-radius: 50%;
+  &__notification-icon img {
+    width: 26px;
+    height: 26px;
   }
 
   &__user {
@@ -248,14 +240,16 @@
   &__user-arrow {
     font-size: 12px;
     margin-right: 10px;
-    width: 20px;
-    height: 20px;
     color: $text-secondary;
     transition: transform 0.2s ease-in-out;
 
     .header__user-details:hover & {
       transform: rotate(180deg);
     }
+  }
+  &__user-arrow img {
+    width: 20px;
+    height: 20px;
   }
 
   &__user-dropdown {

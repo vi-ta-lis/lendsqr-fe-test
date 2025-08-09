@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
 import SearchIcon from "../../../assets/icons/search-icon.svg";
 import ProfileImg from "../../../assets/images/avatar.png";
+import navarrow from "../../../assets/icons/nav-arrow.png";
+import navbell from "../../../assets/icons/navbell.png";
 import "./Header.scss";
 
 interface HeaderProps {
@@ -69,7 +71,9 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
           </Link>
 
           <button className="header__notification">
-            <span className="header__notification-icon">🔔</span>
+            <span className="header__notification-icon">
+              <img src={navbell} alt="nav bell icon" />
+            </span>
             <span className="header__notification-badge"></span>
           </button>
 
@@ -87,7 +91,9 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
                 <span className="header__user-name">
                   {user?.name || "Adedeji"}
                 </span>
-                <span className="header__user-arrow">⌄</span>
+                <span className="header__user-arrow">
+                  <img src={navarrow} alt="navarrow" />
+                </span>
               </button>
             </div>
 
