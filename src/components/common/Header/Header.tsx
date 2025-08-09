@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
-import SearchIcon from "../../../assets/icons/search-icon.svg";
-import ProfileImg from "../../../assets/images/avatar.png";
-import navarrow from "../../../assets/icons/nav-arrow.png";
-import navbell from "../../../assets/icons/navbell.png";
+import SearchIcon from "/assets/icons/search-icon.svg";
+import ProfileImg from "/assets/images/avatar.png";
+import navarrow from "/assets/icons/nav-arrow.png";
+import navbell from "/assets/icons/navbell.png";
 import "./Header.scss";
 
 interface HeaderProps {

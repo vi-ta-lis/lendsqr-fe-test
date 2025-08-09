@@ -1,9 +1,14 @@
-import React, { useState, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
-import type { User, UserStatus, UserTableFilters, SortConfig } from '../../../types';
-import Button from '../../common/Button';
-import './UserTable.scss';
-import Filter from "../../../assets/icons/filter.png"
+import React, { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
+import type {
+  User,
+  UserStatus,
+  UserTableFilters,
+  SortConfig,
+} from "../../../types";
+import Button from "../../common/Button";
+import "./UserTable.scss";
+import Filter from "/assets/icons/filter.png";
 
 interface UserTableProps {
   users: User[];
@@ -11,10 +16,10 @@ interface UserTableProps {
   onStatusChange: (userId: string, status: UserStatus) => void;
 }
 
-const UserTable: React.FC<UserTableProps> = ({ 
-  users, 
-  loading = false, 
-  onStatusChange 
+const UserTable: React.FC<UserTableProps> = ({
+  users,
+  loading = false,
+  onStatusChange,
 }) => {
   const navigate = useNavigate();
   const [filters, setFilters] = useState<UserTableFilters>({});
@@ -23,12 +28,22 @@ const UserTable: React.FC<UserTableProps> = ({
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
   const columns = [
-    { key: 'orgName', label: 'ORGANIZATION', sortable: true, filterable: true },
-    { key: 'userName', label: 'USERNAME', sortable: true, filterable: true },
-    { key: 'email', label: 'EMAIL', sortable: true, filterable: true },
-    { key: 'phoneNumber', label: 'PHONE NUMBER', sortable: true, filterable: true },
-    { key: 'dateJoined', label: 'DATE JOINED', sortable: true, filterable: true },
-    { key: 'status', label: 'STATUS', sortable: true, filterable: true },
+    { key: "orgName", label: "ORGANIZATION", sortable: true, filterable: true },
+    { key: "userName", label: "USERNAME", sortable: true, filterable: true },
+    { key: "email", label: "EMAIL", sortable: true, filterable: true },
+    {
+      key: "phoneNumber",
+      label: "PHONE NUMBER",
+      sortable: true,
+      filterable: true,
+    },
+    {
+      key: "dateJoined",
+      label: "DATE JOINED",
+      sortable: true,
+      filterable: true,
+    },
+    { key: "status", label: "STATUS", sortable: true, filterable: true },
   ];
 
   const filteredAndSortedUsers = useMemo(() => {
@@ -36,27 +51,27 @@ const UserTable: React.FC<UserTableProps> = ({
 
     // Apply filters
     if (filters.organization) {
-      result = result.filter(user => 
+      result = result.filter((user) =>
         user.orgName.toLowerCase().includes(filters.organization!.toLowerCase())
       );
     }
     if (filters.username) {
-      result = result.filter(user => 
+      result = result.filter((user) =>
         user.userName.toLowerCase().includes(filters.username!.toLowerCase())
       );
     }
     if (filters.email) {
-      result = result.filter(user => 
+      result = result.filter((user) =>
         user.email.toLowerCase().includes(filters.email!.toLowerCase())
       );
     }
     if (filters.phoneNumber) {
-      result = result.filter(user => 
+      result = result.filter((user) =>
         user.phoneNumber.includes(filters.phoneNumber!)
       );
     }
     if (filters.status) {
-      result = result.filter(user => user.status === filters.status);
+      result = result.filter((user) => user.status === filters.status);
     }
 
     // Apply sorting
@@ -64,12 +79,12 @@ const UserTable: React.FC<UserTableProps> = ({
       result.sort((a, b) => {
         const aValue = a[sortConfig.key as keyof User] as string;
         const bValue = b[sortConfig.key as keyof User] as string;
-        
+
         if (aValue < bValue) {
-          return sortConfig.direction === 'asc' ? -1 : 1;
+          return sortConfig.direction === "asc" ? -1 : 1;
         }
         if (aValue > bValue) {
-          return sortConfig.direction === 'asc' ? 1 : -1;
+          return sortConfig.direction === "asc" ? 1 : -1;
         }
         return 0;
       });
@@ -79,22 +94,26 @@ const UserTable: React.FC<UserTableProps> = ({
   }, [users, filters, sortConfig]);
 
   const handleSort = (key: string) => {
-    let direction: 'asc' | 'desc' = 'asc';
-    if (sortConfig && sortConfig.key === key && sortConfig.direction === 'asc') {
-      direction = 'desc';
+    let direction: "asc" | "desc" = "asc";
+    if (
+      sortConfig &&
+      sortConfig.key === key &&
+      sortConfig.direction === "asc"
+    ) {
+      direction = "desc";
     }
     setSortConfig({ key, direction });
   };
 
   const handleFilterChange = (key: string, value: string) => {
-    if (key === 'status' && value === '') {
-      setFilters(prev => {
+    if (key === "status" && value === "") {
+      setFilters((prev) => {
         const newFilters = { ...prev };
         delete newFilters.status;
         return newFilters;
       });
     } else {
-      setFilters(prev => ({ ...prev, [key]: value }));
+      setFilters((prev) => ({ ...prev, [key]: value }));
     }
   };
 
@@ -118,28 +137,28 @@ const UserTable: React.FC<UserTableProps> = ({
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-      hour: 'numeric',
-      minute: '2-digit',
+    return date.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
       hour12: true,
     });
   };
 
   const getStatusClassName = (status: UserStatus) => {
     switch (status) {
-      case 'Active':
-        return 'user-table__status--active';
-      case 'Pending':
-        return 'user-table__status--pending';
-      case 'Blacklisted':
-        return 'user-table__status--blacklisted';
-      case 'Inactive':
-        return 'user-table__status--inactive';
+      case "Active":
+        return "user-table__status--active";
+      case "Pending":
+        return "user-table__status--pending";
+      case "Blacklisted":
+        return "user-table__status--blacklisted";
+      case "Inactive":
+        return "user-table__status--inactive";
       default:
-        return '';
+        return "";
     }
   };
 
@@ -173,24 +192,30 @@ const UserTable: React.FC<UserTableProps> = ({
                 {columns.map((column) => (
                   <th key={column.key} className="user-table__th">
                     <div className="user-table__th-content">
-                      <span 
-                        className={`user-table__th-text ${column.sortable ? 'user-table__th-text--sortable' : ''}`}
-                        onClick={column.sortable ? () => handleSort(column.key) : undefined}
+                      <span
+                        className={`user-table__th-text ${
+                          column.sortable ? "user-table__th-text--sortable" : ""
+                        }`}
+                        onClick={
+                          column.sortable
+                            ? () => handleSort(column.key)
+                            : undefined
+                        }
                       >
                         {column.label}
                         {sortConfig?.key === column.key && (
                           <span className="user-table__sort-indicator">
-                            {sortConfig.direction === 'asc' ? '↑' : '↓'}
+                            {sortConfig.direction === "asc" ? "↑" : "↓"}
                           </span>
                         )}
                       </span>
-                      
+
                       {column.filterable && (
                         <button
                           className="user-table__filter-btn"
                           onClick={() => toggleFilter(column.key)}
                         >
-                        <img src={Filter} alt="filter btn" />
+                          <img src={Filter} alt="filter btn" />
                         </button>
                       )}
                     </div>
@@ -198,10 +223,12 @@ const UserTable: React.FC<UserTableProps> = ({
                     {showFilters === column.key && (
                       <div className="user-table__filter-dropdown">
                         <div className="user-table__filter-content">
-                          {column.key === 'status' ? (
+                          {column.key === "status" ? (
                             <select
-                              value={filters.status || ''}
-                              onChange={(e) => handleFilterChange('status', e.target.value)}
+                              value={filters.status || ""}
+                              onChange={(e) =>
+                                handleFilterChange("status", e.target.value)
+                              }
                               className="user-table__filter-select"
                             >
                               <option value="">All Statuses</option>
@@ -212,14 +239,21 @@ const UserTable: React.FC<UserTableProps> = ({
                             </select>
                           ) : (
                             <input
-                              type={column.key === 'dateJoined' ? 'date' : 'text'}
+                              type={
+                                column.key === "dateJoined" ? "date" : "text"
+                              }
                               placeholder={`Filter by ${column.label.toLowerCase()}`}
-                              value={filters[column.key as keyof UserTableFilters] || ''}
-                              onChange={(e) => handleFilterChange(column.key, e.target.value)}
+                              value={
+                                filters[column.key as keyof UserTableFilters] ||
+                                ""
+                              }
+                              onChange={(e) =>
+                                handleFilterChange(column.key, e.target.value)
+                              }
                               className="user-table__filter-input"
                             />
                           )}
-                          
+
                           <div className="user-table__filter-actions">
                             <Button
                               variant="outline"
@@ -251,8 +285,8 @@ const UserTable: React.FC<UserTableProps> = ({
           <table className="user-table__table">
             <tbody>
               {filteredAndSortedUsers.map((user) => (
-                <tr 
-                  key={user.id} 
+                <tr
+                  key={user.id}
                   className="user-table__row user-table__row--clickable"
                   onClick={() => handleViewDetails(user.id)}
                 >
@@ -260,9 +294,15 @@ const UserTable: React.FC<UserTableProps> = ({
                   <td className="user-table__td">{user.userName}</td>
                   <td className="user-table__td">{user.email}</td>
                   <td className="user-table__td">{user.phoneNumber}</td>
-                  <td className="user-table__td">{formatDate(user.dateJoined)}</td>
                   <td className="user-table__td">
-                    <span className={`user-table__status ${getStatusClassName(user.status)}`}>
+                    {formatDate(user.dateJoined)}
+                  </td>
+                  <td className="user-table__td">
+                    <span
+                      className={`user-table__status ${getStatusClassName(
+                        user.status
+                      )}`}
+                    >
                       {user.status}
                     </span>
                   </td>
@@ -289,14 +329,18 @@ const UserTable: React.FC<UserTableProps> = ({
                           </button>
                           <button
                             className="user-table__menu-item"
-                            onClick={() => handleStatusChange(user.id, 'Blacklisted')}
+                            onClick={() =>
+                              handleStatusChange(user.id, "Blacklisted")
+                            }
                           >
                             <span className="user-table__menu-icon">❌</span>
                             Blacklist User
                           </button>
                           <button
                             className="user-table__menu-item"
-                            onClick={() => handleStatusChange(user.id, 'Active')}
+                            onClick={() =>
+                              handleStatusChange(user.id, "Active")
+                            }
                           >
                             <span className="user-table__menu-icon">✅</span>
                             Activate User

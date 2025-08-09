@@ -1,29 +1,29 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Logo from "../../../assets/icons/logo.svg";
-import UserIcon from "../../../assets/icons/usericon.png";
-import GuarantorIcon from "../../../assets/icons/guarantor.png";
-import briefcase from "../../../assets/icons/briefcase.svg";
-import dashhome from "../../../assets/icons/dashhome.png";
-import Loans from "../../../assets/icons/loans.png";
+import Logo from "/assets/icons/logo.svg";
+import UserIcon from "/assets/icons/usericon.png";
+import GuarantorIcon from "/assets/icons/guarantor.png";
+import briefcase from "/assets/icons/briefcase.svg";
+import dashhome from "/assets/icons/dashhome.png";
+import Loans from "/assets/icons/loans.png";
 import "./Sidebar.scss";
-import Decision from "../../../assets/icons/decision.png";
-import Savings from "../../../assets/icons/saving.png";
-import LoanRequest from "../../../assets/icons/loan.png";
-import WhiteList from "../../../assets/icons/whitelist.png";
-import Karma from "../../../assets/icons/karma.png";
-import Organization from "../../../assets/icons/organization.png";
-import LoanProducts from "../../../assets/icons/loan-products.png";
-import UserFriendsIcon from "../../../assets/icons/user-friends.svg"; // <-- renamed import
-import FeesCharge from "../../../assets/icons/fees.png";
-import Transactions from "../../../assets/icons/transaction.png";
-import Services from "../../../assets/icons/services.png";
-import ServiceAccount from "../../../assets/icons/service-account.png";
-import Settlement from "../../../assets/icons/settlement.png";
-import Reports from "../../../assets/icons/reports.png";
-import Prefrences from "../../../assets/icons/pref.png";
-import Fees from "../../../assets/icons/fees-pricing.png";
-import OrgArrow from "../../../assets/icons/org-arrow.png";
+import Decision from "/assets/icons/decision.png";
+import Savings from "/assets/icons/saving.png";
+import LoanRequest from "/assets/icons/loan.png";
+import WhiteList from "/assets/icons/whitelist.png";
+import Karma from "/assets/icons/karma.png";
+import Organization from "/assets/icons/organization.png";
+import LoanProducts from "/assets/icons/loan-products.png";
+import UserFriendsIcon from "/assets/icons/user-friends.svg"; // <-- renamed import
+import FeesCharge from "/assets/icons/fees.png";
+import Transactions from "/assets/icons/transaction.png";
+import Services from "/assets/icons/services.png";
+import ServiceAccount from "/assets/icons/service-account.png";
+import Settlement from "/assets/icons/settlement.png";
+import Reports from "/assets/icons/reports.png";
+import Prefrences from "/assets/icons/pref.png";
+import Fees from "/assets/icons/fees-pricing.png";
+import OrgArrow from "/assets/icons/org-arrow.png";
 
 interface MenuSection {
   title: string;

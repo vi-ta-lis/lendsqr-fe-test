@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import Button from "../../components/common/Button";
 import Input from "../../components/common/Input";
-import Logo from "../../assets/icons/logo.svg";
-import LoginIllustration from "../../assets/images/login-img.png";
+import Logo from "/assets/icons/logo.svg";
+import LoginIllustration from "/assets/images/login-img.png";
 import "./Login.scss";
 
 interface FormData {
