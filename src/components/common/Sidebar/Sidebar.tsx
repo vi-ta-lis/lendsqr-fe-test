@@ -4,7 +4,6 @@ import Logo from "../../../assets/icons/logo.svg";
 import UserIcon from "../../../assets/icons/usericon.png";
 import GuarantorIcon from "../../../assets/icons/guarantor.png";
 import briefcase from "../../../assets/icons/briefcase.svg";
-// import arrow from "../../../assets/icons/uparrow.png";
 import dashhome from "../../../assets/icons/dashhome.png";
 import Loans from "../../../assets/icons/loans.png";
 import "./Sidebar.scss";
@@ -25,7 +24,6 @@ import Reports from "../../../assets/icons/reports.png";
 import Prefrences from "../../../assets/icons/pref.png";
 import Fees from "../../../assets/icons/fees-pricing.png";
 import OrgArrow from "../../../assets/icons/org-arrow.png";
-// import Audit from "../../../assets/icons/audit.png";
 
 interface MenuSection {
   title: string;
