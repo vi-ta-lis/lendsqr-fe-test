@@ -71,7 +71,7 @@ const Login: React.FC = () => {
     try {
       const success = await login(formData.email, formData.password);
       if (success) {
-        navigate("/dashboard");
+        navigate("/users");
       } else {
         setErrors({ password: "Invalid email or password" });
       }
