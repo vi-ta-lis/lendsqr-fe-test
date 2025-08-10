@@ -1,0 +1,56 @@
+<svg width="600" height="338" viewBox="0 0 600 338" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background shapes -->
+  <circle cx="100" cy="100" r="40" fill="#E9F7FE" opacity="0.6"/>
+  <circle cx="500" cy="80" r="25" fill="#FFE4E6" opacity="0.8"/>
+  <circle cx="450" cy="250" r="35" fill="#FFF4E6" opacity="0.7"/>
+  
+  <!-- Main figure -->
+  <g transform="translate(200, 50)">
+    <!-- Person sitting at desk -->
+    <rect x="80" y="150" width="120" height="80" rx="8" fill="#4A90E2" opacity="0.8"/>
+    <rect x="90" y="140" width="100" height="8" rx="4" fill="#5BA3F5"/>
+    
+    <!-- Person -->
+    <circle cx="140" cy="120" r="25" fill="#FFD6A5"/>
+    <rect x="125" y="145" width="30" height="40" rx="8" fill="#6BB6FF"/>
+    <rect x="120" y="175" width="15" height="20" fill="#FFD6A5"/>
+    <rect x="165" y="175" width="15" height="20" fill="#FFD6A5"/>
+    
+    <!-- Computer screen -->
+    <rect x="50" y="100" width="80" height="50" rx="4" fill="#2C3E50"/>
+    <rect x="55" y="105" width="70" height="35" fill="#ECF0F1"/>
+    <rect x="85" y="150" width="10" height="15" fill="#34495E"/>
+    
+    <!-- Decorative elements -->
+    <circle cx="20" cy="50" r="15" fill="#FF6B9D" opacity="0.7"/>
+    <rect x="10" y="200" width="20" height="30" fill="#4ECDC4" opacity="0.6"/>
+    <polygon points="250,40 270,60 250,80 230,60" fill="#FFE066"/>
+    
+    <!-- Documents/papers -->
+    <rect x="160" y="190" width="25" height="35" rx="2" fill="#FFFFFF" stroke="#DDD"/>
+    <rect x="190" y="185" width="25" height="35" rx="2" fill="#FFFFFF" stroke="#DDD"/>
+    
+    <!-- Abstract shapes -->
+    <path d="M0 250 Q 50 230 100 250 T 200 250" stroke="#39CDCC" stroke-width="3" fill="none" opacity="0.6"/>
+    
+    <!-- Floating elements -->
+    <circle cx="30" cy="150" r="8" fill="#FFA726" opacity="0.8"/>
+    <rect x="240" y="120" width="12" height="12" rx="2" fill="#AB47BC" opacity="0.7"/>
+    
+    <!-- Plant/decoration -->
+    <ellipse cx="15" cy="220" rx="8" ry="12" fill="#4CAF50"/>
+    <rect x="13" y="232" width="4" height="15" fill="#8BC34A"/>
+  </g>
+  
+  <!-- Additional decorative elements -->
+  <circle cx="550" cy="300" r="20" fill="#E1BEE7" opacity="0.5"/>
+  <rect x="20" y="300" width="15" height="15" rx="3" fill="#FFCDD2" opacity="0.8"/>
+  
+  <!-- Abstract geometric shapes -->
+  <polygon points="50,20 70,35 50,50 30,35" fill="#B39DDB" opacity="0.6"/>
+  <circle cx="520" cy="320" r="12" fill="#A5D6A7" opacity="0.7"/>
+  
+  <!-- Connecting lines -->
+  <path d="M80 280 Q 150 260 220 280" stroke="#E0E0E0" stroke-width="2" fill="none"/>
+  <path d="M400 60 Q 450 40 500 60" stroke="#E0E0E0" stroke-width="2" fill="none"/>
+</svg>
