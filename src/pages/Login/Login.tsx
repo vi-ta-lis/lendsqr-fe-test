@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import Button from "../../components/common/Button";
 import Input from "../../components/common/Input";
-import Logo from "/assets/icons/logo.svg";
+import logo from "/assets/icons/lendlogo.svg";
 import LoginIllustration from "/assets/images/login-img.png";
 import "./Login.scss";
 
@@ -94,7 +94,7 @@ const Login: React.FC = () => {
       <div className="login__container">
         <div className="login__left">
           <div className="login__logo">
-            <img src={Logo} alt="Lendsqr" />
+            <img src={logo} alt="Lendsqr" />
           </div>
           <div className="login__illustration">
             <img src={LoginIllustration} alt="Login illustration" />

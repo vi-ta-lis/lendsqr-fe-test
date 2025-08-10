@@ -33,7 +33,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       try {
         const userData = JSON.parse(storedUser);
         setUser(userData);
-      } catch (error) {
+      } catch  {
         localStorage.removeItem('lendsqr_user');
       }
     }
